@@ -1,24 +1,41 @@
-import logo from './logo.svg';
-import './App.css';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import Login from './Login';
+import LecturerDashboard from './LecturerDashboard';
+import StudentDashboard from './StudentDashboard';
+import PRLDashboard from './PRLDashboard';
+import PLDashboard from './PLDashboard'; // ✅ PL route added
+
+import NotFound from './NotFound';
+import PrivateRoute from './PrivateRoute';
+import ViewModules from './ViewModules';
+import Monitoring from './Monitoring';
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Router>
+      <Routes>
+        {/* Public Routes */}
+        <Route path="/" element={<Login />} />
+        <Route path="/login" element={<Login />} />
+
+        {/* Student Routes */}
+        <Route path="/student" element={<PrivateRoute><StudentDashboard /></PrivateRoute>} />
+        <Route path="/student/modules" element={<PrivateRoute><ViewModules /></PrivateRoute>} />
+        <Route path="/student/monitoring" element={<PrivateRoute><Monitoring /></PrivateRoute>} />
+
+        {/* Lecturer Route */}
+        <Route path="/lecturer" element={<PrivateRoute><LecturerDashboard /></PrivateRoute>} />
+
+        {/* PRL Route */}
+        <Route path="/prl" element={<PrivateRoute><PRLDashboard /></PrivateRoute>} />
+
+        {/* PL Route */}
+        <Route path="/pl" element={<PrivateRoute><PLDashboard /></PrivateRoute>} />
+
+        {/* Fallback Route */}
+        <Route path="*" element={<NotFound />} />
+      </Routes>
+    </Router>
   );
 }
 

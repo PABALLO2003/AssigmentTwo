@@ -1,0 +1,116 @@
+/* Container styling */
+.lecturer-dashboard {
+  max-width: 800px;
+  margin: 40px auto;
+  padding: 30px;
+  background: #fefefe;
+  border-radius: 10px;
+  box-shadow: 0 0 12px rgba(0, 0, 0, 0.1);
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* Headings */
+.lecturer-dashboard h2 {
+  text-align: center;
+  margin-bottom: 10px;
+  color: #222;
+}
+
+.lecturer-dashboard h3 {
+  text-align: center;
+  margin-bottom: 30px;
+  color: #444;
+}
+
+/* Form layout */
+.lecturer-dashboard form {
+  display: flex;
+  flex-direction: column;
+}
+
+/* Inputs, selects, textareas */
+.lecturer-dashboard input,
+.lecturer-dashboard select,
+.lecturer-dashboard textarea {
+  margin: 10px 0;
+  padding: 12px;
+  font-size: 15px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  background-color: #fff;
+  transition: border-color 0.3s ease;
+}
+
+.lecturer-dashboard input:focus,
+.lecturer-dashboard select:focus,
+.lecturer-dashboard textarea:focus {
+  border-color: #007bff;
+  outline: none;
+}
+
+/* Labels */
+.lecturer-dashboard label {
+  font-weight: bold;
+  margin-top: 15px;
+  display: block;
+  color: #333;
+}
+
+/* Buttons */
+.lecturer-dashboard button {
+  padding: 12px 20px;
+  background: #007bff;
+  color: white;
+  font-weight: bold;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  margin-top: 15px;
+  transition: background 0.3s ease;
+}
+
+.lecturer-dashboard button:hover {
+  background: #0056b3;
+}
+
+/* Message feedback */
+.lecturer-dashboard .message {
+  margin-top: 15px;
+  text-align: center;
+  font-weight: bold;
+  color: green;
+}
+
+.lecturer-dashboard .error {
+  color: red;
+  font-weight: bold;
+  text-align: center;
+  margin-top: 10px;
+}
+
+/* Dropdown section */
+.class-dropdown {
+  margin-bottom: 20px;
+}
+
+.class-dropdown select {
+  width: 100%;
+  padding: 10px;
+  font-size: 15px;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+}
+
+/* Responsive layout */
+@media (max-width: 768px) {
+  .lecturer-dashboard {
+    margin: 20px;
+    padding: 20px;
+  }
+
+  .lecturer-dashboard input,
+  .lecturer-dashboard select,
+  .lecturer-dashboard textarea {
+    font-size: 16px;
+  }
+}
