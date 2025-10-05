@@ -10,14 +10,14 @@ function PRLDashboard() {
   const [feedbacks, setFeedbacks] = useState({});
   const [dropdownOpen, setDropdownOpen] = useState(false);
 
-  // --- Reference Data ---
+  
   const courses = [
     { course_id: 1, course_name: 'Programming Fundamentals', course_code: 'BIT101' },
     { course_id: 2, course_name: 'Web Design', course_code: 'BIT102' },
     { course_id: 3, course_name: 'Object-Oriented Programming', course_code: 'BIT201' },
     { course_id: 4, course_name: 'Database Systems', course_code: 'BIT202' },
     { course_id: 5, course_name: 'Networking', course_code: 'BIT301' },
-    // ... other courses
+
   ];
 
   const classes = [
@@ -26,13 +26,13 @@ function PRLDashboard() {
     { class_id: 3, course_id: 3, class_name: 'BIT201-Wednesday-AM', venue: 'MM4', day_of_week: 'Wednesday', scheduled_time: '08:30' },
     { class_id: 4, course_id: 4, class_name: 'BIT202-Thursday-AM', venue: 'MM1', day_of_week: 'Thursday', scheduled_time: '10:30' },
     { class_id: 5, course_id: 5, class_name: 'BIT301-Friday-AM', venue: 'MM5', day_of_week: 'Friday', scheduled_time: '08:30' },
-    // ... other classes
+ 
   ];
 
   const reports = [
     { report_id: 1, class_id: 1, course_id: 1, topic_taught: 'Intro to Programming', week_number: 1, lecturer_name: 'Lecturer 1', course_name: 'Programming Fundamentals', course_code: 'BIT101', status: 'pending' },
     { report_id: 2, class_id: 2, course_id: 2, topic_taught: 'HTML & CSS Basics', week_number: 1, lecturer_name: 'Lecturer 4', course_name: 'Web Design', course_code: 'BIT102', status: 'pending' },
-    // ... other reports
+  
   ];
 
   const ratings = [
@@ -45,7 +45,7 @@ function PRLDashboard() {
     { id: 2, date: '2025-08-05', status: 'Pending' },
   ];
 
-  // --- Handlers ---
+ 
   const handleLogout = () => {
     localStorage.clear();
     navigate('/login');
@@ -103,7 +103,7 @@ function PRLDashboard() {
       <button onClick={handleLogout} style={styles.logoutButton}>🔒 Logout</button>
       <button onClick={handleExport} style={styles.exportButton}>📤 Export to Excel</button>
 
-      {/* Courses Dropdown */}
+      {}
       <div style={styles.section}>
         <h2 style={styles.heading}>📘 Courses</h2>
         <div style={{ position: 'relative' }}>
@@ -131,7 +131,7 @@ function PRLDashboard() {
         </div>
       </div>
 
-      {/* Classes Section */}
+      {}
       <div style={styles.section}>
         <h2 style={styles.heading}>🏫 Classes</h2>
         {filteredClasses.map(cls => (
@@ -142,7 +142,7 @@ function PRLDashboard() {
         {filteredClasses.length === 0 && <p>No classes available.</p>}
       </div>
 
-      {/* Reports Section */}
+      {}
       <div style={styles.section}>
         <h2 style={styles.heading}>📄 Reports</h2>
         {filteredReports.map(report => (

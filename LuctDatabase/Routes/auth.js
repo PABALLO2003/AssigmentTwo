@@ -5,12 +5,12 @@ const crypto = require('crypto');
 const db = require('../db');
 require('dotenv').config();
 
-// ✅ Test route
+
 router.get('/login', (req, res) => {
   res.send('🔐 Login route is active. Use POST to authenticate.');
 });
 
-// ✅ Login handler
+
 router.post('/login', (req, res) => {
   const { login_id, password, role } = req.body;
 
@@ -44,8 +44,8 @@ router.post('/login', (req, res) => {
 
     case 'prl':
       table = 'PRL';
-      idField = 'user_id';               // ✅ login by user_id
-      passwordField = 'password_hash';   // ✅ correct column name
+      idField = 'user_id';               
+      passwordField = 'password_hash';   
       break;
 
     default:
@@ -80,7 +80,7 @@ router.post('/login', (req, res) => {
       { expiresIn: '1h' }
     );
 
-    // ✅ Role-specific response
+    
     switch (normalizedRole) {
       case 'lecturer':
         return res.status(200).json({

@@ -2,7 +2,7 @@ const express = require('express');
 const router = express.Router();
 const db = require('../db');
 
-// ✅ Fetch courses assigned to PRL via prl_id
+
 router.get('/courses', (req, res) => {
   const user_id = req.query.user_id;
 
@@ -32,7 +32,7 @@ router.get('/courses', (req, res) => {
   });
 });
 
-// ✅ Fetch classes assigned to PRL
+
 router.get('/classes', (req, res) => {
   const user_id = req.query.user_id;
 
@@ -55,7 +55,7 @@ router.get('/classes', (req, res) => {
   });
 });
 
-// ✅ Fetch monitoring records for PRL
+
 router.get('/monitoring', (req, res) => {
   const user_id = req.query.user_id;
 
@@ -78,7 +78,7 @@ router.get('/monitoring', (req, res) => {
   });
 });
 
-// ✅ Fetch ratings submitted by PRL
+
 router.get('/ratings', (req, res) => {
   const user_id = req.query.user_id;
 
@@ -101,7 +101,7 @@ router.get('/ratings', (req, res) => {
   });
 });
 
-// ✅ Fetch lecturer reports linked to PRL's assigned classes
+
 router.get('/reports', (req, res) => {
   const user_id = req.query.user_id;
 

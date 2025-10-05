@@ -1,8 +1,8 @@
 const express = require('express');
 const router = express.Router();
-const db = require('../db'); // This uses mysql.createConnection()
+const db = require('../db'); 
 
-// ✅ GET all courses (callback style)
+
 router.get('/', (req, res) => {
   db.query('SELECT * FROM courses', (err, results) => {
     if (err) {
@@ -20,7 +20,7 @@ router.get('/', (req, res) => {
   });
 });
 
-// ✅ POST new course (callback style)
+
 router.post('/', (req, res) => {
   const { name, code, program, semester, faculty } = req.body;
 
@@ -44,7 +44,7 @@ router.post('/', (req, res) => {
   });
 });
 
-// ✅ Update total_students for a course
+
 router.put('/:id/students', (req, res) => {
   const courseId = req.params.id;
   const { total_students } = req.body;

@@ -27,7 +27,6 @@ export default function PLDashboard() {
   const API_BASE = 'http://localhost:5000/api';
   const userId = localStorage.getItem('pl_id');
 
-  // ✅ Fetch all data
   const fetchAll = useCallback(async () => {
     if (!userId) return console.warn('⚠️ No PL ID found in localStorage');
 
@@ -38,7 +37,7 @@ export default function PLDashboard() {
         axios.get(`${API_BASE}/pl/reports?pl_id=${userId}`)
       ]);
 
-      // ✅ Use Array.isArray for safety
+    
       setCourses(Array.isArray(coursesRes.data) ? coursesRes.data : []);
       setLecturers(Array.isArray(lecturersRes.data) ? lecturersRes.data : []);
       setPrlReports(Array.isArray(reportsRes.data) ? reportsRes.data : []);
@@ -50,7 +49,7 @@ export default function PLDashboard() {
 
   useEffect(() => { fetchAll(); }, [fetchAll]);
 
-  // ✅ Update assignment when dropdown changes
+
   useEffect(() => {
     const selectedCourse = courses.find(c => String(c.course_id) === String(assignment.course_id));
     const selectedLecturer = lecturers.find(l => String(l.lecturer_id) === String(assignment.lecturer_id));
@@ -63,7 +62,7 @@ export default function PLDashboard() {
     }));
   }, [assignment.course_id, assignment.lecturer_id, courses, lecturers]);
 
-  // ✅ Form handlers
+
   const handleChange = (e) => setAssignment(prev => ({ ...prev, [e.target.name]: e.target.value }));
   const handleCourseChange = (e) => {
     const { name, value } = e.target;
@@ -102,13 +101,13 @@ export default function PLDashboard() {
   const handleLogout = () => { localStorage.removeItem('pl_id'); window.location.href = '/login'; };
   const clearMessageAfterDelay = (ms = 4000) => setTimeout(() => setMessage(''), ms);
 
-  // ✅ UI
+
   return (
     <div style={{ padding: '20px', fontFamily: 'Arial', backgroundColor: '#fff', color: '#000' }}>
       <h2 style={{ fontSize: 24, fontWeight: 'bold', marginBottom: 10 }}>Program Leader Dashboard</h2>
       <button onClick={handleLogout} style={{ padding: 8, backgroundColor: '#000', color: '#fff', borderRadius: 4, marginBottom: 20 }}>🚪 Logout</button>
 
-      {/* Add Course */}
+     
       <form onSubmit={handleAddCourse} style={{ marginBottom: 30, padding: 15, borderRadius: 8, border: '1px solid #000', backgroundColor: '#f9f9f9' }}>
         <h3>📚 Add New Course</h3>
         <select name="name" value={newCourse.name} onChange={handleCourseChange} required style={{ width: '100%', padding: 8, marginBottom: 10 }}>
@@ -119,7 +118,7 @@ export default function PLDashboard() {
         <button type="submit" style={{ padding: 8, backgroundColor: '#000', color: '#fff', borderRadius: 4 }}>Add Course</button>
       </form>
 
-      {/* Assign Lecturer */}
+   
       <form onSubmit={handleAssign} style={{ marginBottom: 30, padding: 15, borderRadius: 8, border: '1px solid #000', backgroundColor: '#f9f9f9' }}>
         <h3>👨‍🏫 Assign Lecturer to Course</h3>
         <select name="course_id" value={assignment.course_id} onChange={handleChange} required style={{ width: '100%', padding: 8, marginBottom: 10 }}>
@@ -142,7 +141,7 @@ export default function PLDashboard() {
         {message && <div style={{ marginTop: 10, fontWeight: 'bold' }}>{message}</div>}
       </form>
 
-      {/* PRL Reports */}
+     
       <div style={{ marginBottom: 30, padding: 15, borderRadius: 8, border: '1px solid #000', backgroundColor: '#f9f9f9' }}>
         <h3>📝 PRL Reports</h3>
         {Array.isArray(prlReports) && prlReports.length > 0 ? prlReports.map(r => (
@@ -158,7 +157,7 @@ export default function PLDashboard() {
         )) : <p>No reports available.</p>}
       </div>
 
-      {/* Course List */}
+   
       <div>
         <button onClick={() => setShowCourses(!showCourses)} style={{ padding: 8, backgroundColor: '#000', color: '#fff', borderRadius: 4 }}>
           {showCourses ? 'Hide' : 'Show'} All Courses

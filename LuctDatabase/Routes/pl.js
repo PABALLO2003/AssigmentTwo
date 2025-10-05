@@ -2,7 +2,7 @@ const express = require('express');
 const router = express.Router();
 const db = require('../db');
 
-// ✅ Add a course
+
 router.post('/courses', (req, res) => {
   const { name, code } = req.body;
   db.query(
@@ -18,7 +18,7 @@ router.post('/courses', (req, res) => {
   );
 });
 
-// ✅ Assign a lecturer to a course
+
 router.post('/assign', (req, res) => {
   const { course_id, lecturer_id } = req.body;
   db.query(
@@ -34,7 +34,7 @@ router.post('/assign', (req, res) => {
   );
 });
 
-// ✅ Fetch reports reviewed by PRL (general)
+
 router.get('/reports', (req, res) => {
   db.query('SELECT * FROM reports WHERE reviewed_by_prl = 1', (err, results) => {
     if (err) {
@@ -45,7 +45,6 @@ router.get('/reports', (req, res) => {
   });
 });
 
-// ✅ Fetch reviewed reports for PL based on program
 router.get('/pl/reports', (req, res) => {
   const plId = req.query.pl_id;
 

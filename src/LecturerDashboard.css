@@ -1,4 +1,3 @@
-/* Container styling */
 .lecturer-dashboard {
   max-width: 800px;
   margin: 40px auto;
@@ -9,7 +8,7 @@
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
-/* Headings */
+
 .lecturer-dashboard h2 {
   text-align: center;
   margin-bottom: 10px;
@@ -22,13 +21,13 @@
   color: #444;
 }
 
-/* Form layout */
+
 .lecturer-dashboard form {
   display: flex;
   flex-direction: column;
 }
 
-/* Inputs, selects, textareas */
+
 .lecturer-dashboard input,
 .lecturer-dashboard select,
 .lecturer-dashboard textarea {
@@ -48,7 +47,7 @@
   outline: none;
 }
 
-/* Labels */
+
 .lecturer-dashboard label {
   font-weight: bold;
   margin-top: 15px;
@@ -56,7 +55,7 @@
   color: #333;
 }
 
-/* Buttons */
+
 .lecturer-dashboard button {
   padding: 12px 20px;
   background: #007bff;
@@ -73,7 +72,7 @@
   background: #0056b3;
 }
 
-/* Message feedback */
+
 .lecturer-dashboard .message {
   margin-top: 15px;
   text-align: center;
@@ -88,7 +87,7 @@
   margin-top: 10px;
 }
 
-/* Dropdown section */
+
 .class-dropdown {
   margin-bottom: 20px;
 }
@@ -101,7 +100,7 @@
   border: 1px solid #ccc;
 }
 
-/* Responsive layout */
+
 @media (max-width: 768px) {
   .lecturer-dashboard {
     margin: 20px;

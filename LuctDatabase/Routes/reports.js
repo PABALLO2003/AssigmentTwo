@@ -2,7 +2,7 @@ const express = require('express');
 const router = express.Router();
 const db = require('../db');
 
-// ✅ Fetch all reports
+
 router.get('/reports', (req, res) => {
   db.query('SELECT * FROM reports', (err, results) => {
     if (err) {
@@ -13,11 +13,11 @@ router.get('/reports', (req, res) => {
   });
 });
 
-// ✅ Fetch reports for PRL by user_id
+
 router.get('/prl/:user_id/reports', (req, res) => {
   const user_id = req.params.user_id;
 
-  // Step 1: Get prl_id from user_id
+  
   db.query('SELECT prl_id FROM PRL WHERE user_id = ?', [user_id], (err, prlResult) => {
     if (err) {
       console.error('❌ PRL lookup error:', err.message);
@@ -29,7 +29,7 @@ router.get('/prl/:user_id/reports', (req, res) => {
 
     const prl_id = prlResult[0].prl_id;
 
-    // Step 2: Get reports linked to PRL's classes
+   
     const query = `
       SELECT r.*, c.course_name, c.course_code, l.name AS lecturer_name
       FROM reports r
@@ -48,7 +48,7 @@ router.get('/prl/:user_id/reports', (req, res) => {
   });
 });
 
-// ✅ Mark a report as reviewed
+
 router.post('/reports/:id/review', (req, res) => {
   const reportId = req.params.id;
   db.query(
@@ -67,7 +67,7 @@ router.post('/reports/:id/review', (req, res) => {
   );
 });
 
-// ✅ Fetch reviewed reports for PL
+
 router.get('/pl/reports', (req, res) => {
   db.query("SELECT * FROM reports WHERE status = 'reviewed'", (err, results) => {
     if (err) {
@@ -78,7 +78,7 @@ router.get('/pl/reports', (req, res) => {
   });
 });
 
-// ✅ Submit PRL feedback
+
 router.post('/prl/feedback', (req, res) => {
   const { report_id, feedback } = req.body;
   db.query(
@@ -94,7 +94,7 @@ router.post('/prl/feedback', (req, res) => {
   );
 });
 
-// ✅ Submit a report from LecturerReportForm
+
 router.post('/submit', (req, res) => {
   const data = req.body;
 
